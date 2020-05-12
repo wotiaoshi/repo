@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uniform.datacollection.mapper.InterfaceMapper">
+  <resultMap id="BaseResultMap" type="com.uniform.datacollection.model.Interface">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="from_source" jdbcType="VARCHAR" property="fromSource" />
+    <result column="field" jdbcType="VARCHAR" property="field" />
+    <result column="data_content" jdbcType="VARCHAR" property="dataContent" />
+    <result column="sync_cycle" jdbcType="VARCHAR" property="syncCycle" />
+    <result column="data_count" jdbcType="BIGINT" property="dataCount" />
+    <result column="shuliangji" jdbcType="DOUBLE" property="shuliangji" />
+    <result column="collect_unit" jdbcType="VARCHAR" property="collectUnit" />
+    <result column="interface_computer" jdbcType="VARCHAR" property="interfaceComputer" />
+    <result column="document_catagory" jdbcType="VARCHAR" property="documentCatagory" />
+    <result column="document_name" jdbcType="VARCHAR" property="documentName" />
+    <result column="dui_system_leading_person" jdbcType="VARCHAR" property="duiSystemLeadingPerson" />
+    <result column="ben_system_leading_person" jdbcType="VARCHAR" property="benSystemLeadingPerson" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, from_source, field, data_content, sync_cycle, data_count, shuliangji, collect_unit, 
+    interface_computer, document_catagory, document_name, dui_system_leading_person, 
+    ben_system_leading_person, description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tab_interface
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tab_interface
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.uniform.datacollection.model.Interface">
+    insert into tab_interface (id, name, from_source, 
+      field, data_content, sync_cycle, 
+      data_count, shuliangji, collect_unit, 
+      interface_computer, document_catagory, document_name, 
+      dui_system_leading_person, ben_system_leading_person, 
+      description)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{fromSource,jdbcType=VARCHAR}, 
+      #{field,jdbcType=VARCHAR}, #{dataContent,jdbcType=VARCHAR}, #{syncCycle,jdbcType=VARCHAR}, 
+      #{dataCount,jdbcType=BIGINT}, #{shuliangji,jdbcType=DOUBLE}, #{collectUnit,jdbcType=VARCHAR}, 
+      #{interfaceComputer,jdbcType=VARCHAR}, #{documentCatagory,jdbcType=VARCHAR}, #{documentName,jdbcType=VARCHAR}, 
+      #{duiSystemLeadingPerson,jdbcType=VARCHAR}, #{benSystemLeadingPerson,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.uniform.datacollection.model.Interface">
+    insert into tab_interface
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="fromSource != null">
+        from_source,
+      </if>
+      <if test="field != null">
+        field,
+      </if>
+      <if test="dataContent != null">
+        data_content,
+      </if>
+      <if test="syncCycle != null">
+        sync_cycle,
+      </if>
+      <if test="dataCount != null">
+        data_count,
+      </if>
+      <if test="shuliangji != null">
+        shuliangji,
+      </if>
+      <if test="collectUnit != null">
+        collect_unit,
+      </if>
+      <if test="interfaceComputer != null">
+        interface_computer,
+      </if>
+      <if test="documentCatagory != null">
+        document_catagory,
+      </if>
+      <if test="documentName != null">
+        document_name,
+      </if>
+      <if test="duiSystemLeadingPerson != null">
+        dui_system_leading_person,
+      </if>
+      <if test="benSystemLeadingPerson != null">
+        ben_system_leading_person,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="fromSource != null">
+        #{fromSource,jdbcType=VARCHAR},
+      </if>
+      <if test="field != null">
+        #{field,jdbcType=VARCHAR},
+      </if>
+      <if test="dataContent != null">
+        #{dataContent,jdbcType=VARCHAR},
+      </if>
+      <if test="syncCycle != null">
+        #{syncCycle,jdbcType=VARCHAR},
+      </if>
+      <if test="dataCount != null">
+        #{dataCount,jdbcType=BIGINT},
+      </if>
+      <if test="shuliangji != null">
+        #{shuliangji,jdbcType=DOUBLE},
+      </if>
+      <if test="collectUnit != null">
+        #{collectUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceComputer != null">
+        #{interfaceComputer,jdbcType=VARCHAR},
+      </if>
+      <if test="documentCatagory != null">
+        #{documentCatagory,jdbcType=VARCHAR},
+      </if>
+      <if test="documentName != null">
+        #{documentName,jdbcType=VARCHAR},
+      </if>
+      <if test="duiSystemLeadingPerson != null">
+        #{duiSystemLeadingPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="benSystemLeadingPerson != null">
+        #{benSystemLeadingPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.uniform.datacollection.model.Interface">
+    update tab_interface
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="fromSource != null">
+        from_source = #{fromSource,jdbcType=VARCHAR},
+      </if>
+      <if test="field != null">
+        field = #{field,jdbcType=VARCHAR},
+      </if>
+      <if test="dataContent != null">
+        data_content = #{dataContent,jdbcType=VARCHAR},
+      </if>
+      <if test="syncCycle != null">
+        sync_cycle = #{syncCycle,jdbcType=VARCHAR},
+      </if>
+      <if test="dataCount != null">
+        data_count = #{dataCount,jdbcType=BIGINT},
+      </if>
+      <if test="shuliangji != null">
+        shuliangji = #{shuliangji,jdbcType=DOUBLE},
+      </if>
+      <if test="collectUnit != null">
+        collect_unit = #{collectUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceComputer != null">
+        interface_computer = #{interfaceComputer,jdbcType=VARCHAR},
+      </if>
+      <if test="documentCatagory != null">
+        document_catagory = #{documentCatagory,jdbcType=VARCHAR},
+      </if>
+      <if test="documentName != null">
+        document_name = #{documentName,jdbcType=VARCHAR},
+      </if>
+      <if test="duiSystemLeadingPerson != null">
+        dui_system_leading_person = #{duiSystemLeadingPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="benSystemLeadingPerson != null">
+        ben_system_leading_person = #{benSystemLeadingPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.uniform.datacollection.model.Interface">
+    update tab_interface
+    set name = #{name,jdbcType=VARCHAR},
+      from_source = #{fromSource,jdbcType=VARCHAR},
+      field = #{field,jdbcType=VARCHAR},
+      data_content = #{dataContent,jdbcType=VARCHAR},
+      sync_cycle = #{syncCycle,jdbcType=VARCHAR},
+      data_count = #{dataCount,jdbcType=BIGINT},
+      shuliangji = #{shuliangji,jdbcType=DOUBLE},
+      collect_unit = #{collectUnit,jdbcType=VARCHAR},
+      interface_computer = #{interfaceComputer,jdbcType=VARCHAR},
+      document_catagory = #{documentCatagory,jdbcType=VARCHAR},
+      document_name = #{documentName,jdbcType=VARCHAR},
+      dui_system_leading_person = #{duiSystemLeadingPerson,jdbcType=VARCHAR},
+      ben_system_leading_person = #{benSystemLeadingPerson,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

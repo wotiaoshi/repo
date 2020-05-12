@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uniform.datacollection.mapper.MetadataMapper">
+  <resultMap id="BaseResultMap" type="com.uniform.datacollection.model.Metadata">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="metadata_name" jdbcType="VARCHAR" property="metadataName" />
+    <result column="metadata_define" jdbcType="VARCHAR" property="metadataDefine" />
+    <result column="metadata_type" jdbcType="VARCHAR" property="metadataType" />
+    <result column="metadata_length" jdbcType="INTEGER" property="metadataLength" />
+    <result column="sequence_id" jdbcType="INTEGER" property="sequenceId" />
+    <result column="inter_id" jdbcType="INTEGER" property="interId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, metadata_name, metadata_define, metadata_type, metadata_length, sequence_id, 
+    inter_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tab_metadata
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tab_metadata
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.uniform.datacollection.model.Metadata">
+    insert into tab_metadata (id, metadata_name, metadata_define, 
+      metadata_type, metadata_length, sequence_id, 
+      inter_id)
+    values (#{id,jdbcType=INTEGER}, #{metadataName,jdbcType=VARCHAR}, #{metadataDefine,jdbcType=VARCHAR}, 
+      #{metadataType,jdbcType=VARCHAR}, #{metadataLength,jdbcType=INTEGER}, #{sequenceId,jdbcType=INTEGER}, 
+      #{interId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.uniform.datacollection.model.Metadata">
+    insert into tab_metadata
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="metadataName != null">
+        metadata_name,
+      </if>
+      <if test="metadataDefine != null">
+        metadata_define,
+      </if>
+      <if test="metadataType != null">
+        metadata_type,
+      </if>
+      <if test="metadataLength != null">
+        metadata_length,
+      </if>
+      <if test="sequenceId != null">
+        sequence_id,
+      </if>
+      <if test="interId != null">
+        inter_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="metadataName != null">
+        #{metadataName,jdbcType=VARCHAR},
+      </if>
+      <if test="metadataDefine != null">
+        #{metadataDefine,jdbcType=VARCHAR},
+      </if>
+      <if test="metadataType != null">
+        #{metadataType,jdbcType=VARCHAR},
+      </if>
+      <if test="metadataLength != null">
+        #{metadataLength,jdbcType=INTEGER},
+      </if>
+      <if test="sequenceId != null">
+        #{sequenceId,jdbcType=INTEGER},
+      </if>
+      <if test="interId != null">
+        #{interId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.uniform.datacollection.model.Metadata">
+    update tab_metadata
+    <set>
+      <if test="metadataName != null">
+        metadata_name = #{metadataName,jdbcType=VARCHAR},
+      </if>
+      <if test="metadataDefine != null">
+        metadata_define = #{metadataDefine,jdbcType=VARCHAR},
+      </if>
+      <if test="metadataType != null">
+        metadata_type = #{metadataType,jdbcType=VARCHAR},
+      </if>
+      <if test="metadataLength != null">
+        metadata_length = #{metadataLength,jdbcType=INTEGER},
+      </if>
+      <if test="sequenceId != null">
+        sequence_id = #{sequenceId,jdbcType=INTEGER},
+      </if>
+      <if test="interId != null">
+        inter_id = #{interId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.uniform.datacollection.model.Metadata">
+    update tab_metadata
+    set metadata_name = #{metadataName,jdbcType=VARCHAR},
+      metadata_define = #{metadataDefine,jdbcType=VARCHAR},
+      metadata_type = #{metadataType,jdbcType=VARCHAR},
+      metadata_length = #{metadataLength,jdbcType=INTEGER},
+      sequence_id = #{sequenceId,jdbcType=INTEGER},
+      inter_id = #{interId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
