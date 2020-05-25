@@ -16,7 +16,8 @@ import java.io.Serializable;
 @Data
 public class UserRegisterParam implements Serializable{
     private Integer id;
-    ceshishishsisi
+//    ceshishishsisi
+//    ghjkl
     @NotEmpty(message = "用户名不能为空")
     @Length(min = 8,max = 18)//有没有保证唯一的校验注解会自定义注解
     private String userName;
