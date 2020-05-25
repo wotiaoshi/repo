@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+欢迎访问联通数据采集项目
+<form action="/interface/info" method="get">
+    <label for="id1">接口名称：</label>
+    <input id="id1" name="name" type ="text" placeholder="请输入接口名称">
+    <label for="id2">来源系统：</label>
+    <input id="id2" name="sourceSystem" type="text" placeholder="请输入来源系统"><br>
+    <label for="id3">归属IT域：</label>
+    <select id="id3" name="field">
+        <option value="B域">B域</option>
+        <option value="D域">D域</option>
+        <option value="E域">E域</option>
+        <option value="M域">M域</option>
+        <option value="O域">O域</option>
+        <option value="外部系统">外部系统</option>
+        <option value="业务平台">业务平台</option>
+        <option value="资源域">资源域</option>
+    </select>
+    <label for="id4">同步周期：</label>
+    <select id="id4" name="syncCycle">
+        <option value="D">D</option>
+        <option value="M">M</option>
+        <option value="日">日</option>
+        <option value="月">月</option>
+        <option value="实时">实时</option>
+        <option value="实时同步">实时同步</option>
+        <option value="准实时">准实时</option>
+        <option value="准实时同步">准实时同步</option>
+    </select>
+    <input type="submit" value="查询">
+</form>
+
+</body>
+</html>
