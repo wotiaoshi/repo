@@ -1,17 +1,10 @@
 package com.uniform.datacollection.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.uniform.datacollection.model.Interface;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface InterfaceMapper {
-    int deleteByPrimaryKey(Integer id);
+@Mapper
+public interface InterfaceMapper extends BaseMapper<Interface> {
 
-    int insert(Interface record);
-
-    int insertSelective(Interface record);
-
-    Interface selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Interface record);
-
-    int updateByPrimaryKey(Interface record);
 }
